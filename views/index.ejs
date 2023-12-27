@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Image Gallery</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .img-fluid {
+            max-height: 200px; /* Adjust as needed */
+            object-fit: cover; /* Ensures images cover the area without stretching */
+        }
+        .rounded {
+            border-radius: 0px; /* Rounded border of 0 pixels */
+        }
+        .shadow {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Dog Image Gallery</h1>
+        <form action="/breed" method="get">
+            <div class="form-group">
+                <label for="breedSelect">Choose a Breed:</label>
+                <select class="form-control" id="breedSelect" name="breed">
+                    <% breeds.forEach(function(breedItem) { %>
+                        <option value="<%= breedItem %>" <%= selectedBreed === breedItem ? 'selected' : '' %>><%= breedItem %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="imageLimit">Number of Images (e.g. 5 ):</label>
+                <input type="number" class="form-control" id="imageLimit" name="limit" min="1" value="<%= typeof imageLimit !== 'undefined' ? imageLimit : 3 %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Show Images</button>
+        </form>
+        
+
+        <% if (typeof images !== 'undefined') { %>
+            <h2>Images of <%= selectedBreed %></h2>
+            <div class="row">
+            <% images.forEach(function(image) { %>
+                <div class="col-md-6 mb-4">
+                <img src="<%= image %>" class="img-fluid rounded shadow" alt="Dog">
+            </div>
+            <% }); %>
+        </div>
+        <% } else { %>
+            <!-- Display random dog image or other content for the initial load -->
+            <img src="<%= dogImage %>" class="img-fluid my-2" alt="Random Dog">
+        <% } %>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

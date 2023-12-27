@@ -1,0 +1,31 @@
+
+.img-fluid {
+    max-height: 200px; /* Adjust as needed */
+    object-fit: cover; /* Ensures images cover the area without stretching */
+}
+.rounded {
+    border-radius: 0px; /* Rounded border of 0 pixels */
+}
+.shadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+body {
+    padding-top: 20px; /* Adds padding to the top of the page */
+}
+.container {
+    text-align: center; /* Centers content in the container */
+}
+h1 {
+    margin-bottom: 20px; /* Space below the h1 heading */
+}
+.img-fluid {
+    max-height: 200px; /* Adjust as needed */
+    object-fit: cover; /* Ensures images cover the area without stretching */
+}
+.rounded {
+    border-radius: 0px; /* Rounded border of 0 pixels */
+}
+.shadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
